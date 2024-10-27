@@ -15,6 +15,15 @@
             position: relative; /* Allows absolute positioning of letters */
         }
 
+        img {
+            position: absolute; /* Make the image position absolute */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+            z-index: 0; /* Set the image behind everything */
+        }
+
         .falling-letter {
             position: absolute;
             top: -20px;
@@ -23,6 +32,7 @@
             color: white; /* Change color to suit your design */
             white-space: nowrap;
             animation: fall linear infinite;
+            z-index: 1; /* Ensure letters are above the image */
         }
 
         @keyframes fall {
@@ -32,10 +42,11 @@
         }
     </style>
 </head>
-<body class="container bg-gray-900 text-white flex flex-col items-center justify-center min-h-screen">
+<body class="bg-gray-900 text-white flex flex-col items-center justify-center min-h-screen">
+    <img src="https://file.garden/Zx3svq1Z7kthf__k/28c55499f5401efd54ff75339bc63331.jpg" alt="A beautiful scenery">
+    <div class="container mx-auto text-center p-6 bg-gray-800 rounded-lg shadow-lg z-10 relative">
         <h1 class="text-4xl font-bold mb-4">Cool Websites</h1>
         <p class="mb-8 text-gray-300">Explore a curated list of websites featuring NSFW and hentai content. Click the links below to discover more!</p>
-    <img src="https://file.garden/Zx3svq1Z7kthf__k/28c55499f5401efd54ff75339bc63331.jpg" alt="A beautiful scenery">
 
         <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <li>
