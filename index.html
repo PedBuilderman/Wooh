@@ -13,15 +13,7 @@
             font-family: 'Roboto', sans-serif;
             overflow: hidden; /* Prevent scrollbars */
             position: relative; /* Allows absolute positioning of letters */
-        }
-
-        img {
-            position: absolute; /* Make the image position absolute */
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: auto;
-            z-index: 0; /* Set the image behind everything */
+            background-color: #1a202c; /* Fallback background color */
         }
 
         .falling-letter {
@@ -32,7 +24,7 @@
             color: white; /* Change color to suit your design */
             white-space: nowrap;
             animation: fall linear infinite;
-            z-index: 1; /* Ensure letters are above the image */
+            z-index: 1; /* Ensure letters are above the background */
         }
 
         @keyframes fall {
@@ -42,9 +34,9 @@
         }
     </style>
 </head>
-<body class="bg-gray-900 text-white flex flex-col items-center justify-center min-h-screen">
-    <img src="https://file.garden/Zx3svq1Z7kthf__k/28c55499f5401efd54ff75339bc63331.jpg" alt="A beautiful scenery">
+<body class="flex flex-col items-center justify-center min-h-screen">
     <div class="container mx-auto text-center p-6 bg-gray-800 rounded-lg shadow-lg z-10 relative">
+        <img src="https://file.garden/Zx3svq1Z7kthf__k/28c55499f5401efd54ff75339bc63331.jpg" alt="A beautiful scenery" class="mb-4" style="width: 300px; height: 300px;">
         <h1 class="text-4xl font-bold mb-4">Cool Websites</h1>
         <p class="mb-8 text-gray-300">Explore a curated list of websites featuring NSFW and hentai content. Click the links below to discover more!</p>
 
@@ -68,4 +60,42 @@
                 </a>
             </li>
             <li>
-                <a href="https://wooh-git-main-pedros-projects-8f0389f2.vercel.app" target="_blank" 
+                <a href="https://wooh-git-main-pedros-projects-8f0389f2.vercel.app" target="_blank" rel="noopener noreferrer" class="block p-6 bg-gray-700 rounded-lg hover:bg-gray-600 transition duration-200 text-center">
+                    <span class="text-lg font-semibold">lol</span>
+                    <i class="fas fa-external-link-alt float-right"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://wooh-git-main-pedros-projects-8f0389f2.vercel.app" target="_blank" rel="noopener noreferrer" class="block p-6 bg-gray-700 rounded-lg hover:bg-gray-600 transition duration-200 text-center">
+                    <span class="text-lg font-semibold">lol</span>
+                    <i class="fas fa-external-link-alt float-right"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+        function createFallingLetter() {
+            const letter = document.createElement('div');
+            letter.className = 'falling-letter';
+            letter.textContent = letters[Math.floor(Math.random() * letters.length)];
+            
+            letter.style.left = Math.random() * 100 + 'vw'; // Random horizontal position
+            letter.style.animationDuration = Math.random() * 2 + 3 + 's'; // Random fall speed
+            letter.style.fontSize = Math.random() * 20 + 10 + 'px'; // Random size
+            
+            document.body.appendChild(letter);
+
+            // Remove the letter after falling
+            letter.addEventListener('animationend', () => {
+                letter.remove();
+            });
+        }
+
+        // Create letters at intervals
+        setInterval(createFallingLetter, 300);
+    </script>
+</body>
+</html>
