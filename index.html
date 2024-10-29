@@ -35,11 +35,13 @@
     </style>
 </head>
 <body class="flex flex-col items-center justify-center min-h-screen">
-    <embed src="https://wooh.vercel.app/" style="width:500px; height: 300px;">
     <div class="container mx-auto text-center p-6 bg-gray-800 rounded-lg shadow-lg z-10 relative">
         <h1 class="text-4xl font-bold mb-4">Cool Websites</h1>
         <p class="mb-8 text-gray-300">Explore a curated list of websites featuring NSFW and hentai content. Click the links below to discover more!</p>
+    <audio id="mySound" src="053.wav"></audio>
 
+    <!-- Button to play sound -->
+    <button onclick="playSound()">Play Sound</button>
         <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             <li>
                 <a href="https://wooh-git-main-pedros-projects-8f0389f2.vercel.app" target="_blank" rel="noopener noreferrer" class="block p-6 bg-gray-700 rounded-lg hover:bg-gray-600 transition duration-200 text-center">
@@ -77,6 +79,11 @@
     <script>
         const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
+            function playSound() {
+            const sound = document.getElementById('mySound');
+            sound.play();
+        }
+        
         function createFallingLetter() {
             const letter = document.createElement('div');
             letter.className = 'falling-letter';
